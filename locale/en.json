@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Performance HUD",
+    "description": "A draggable transparent card showing CPU, GPU and memory usage plus the CPU package temperature."
+  }
+}

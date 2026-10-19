@@ -1,0 +1,62 @@
+{
+  "name": "dsh-perf-hud",
+  "version": "1.0.0",
+  "description": "Draggable transparent HUD for DeepSeek Harness showing CPU, GPU and memory usage plus CPU/GPU temperatures.",
+  "type": "module",
+  "license": "MIT",
+  "author": "ChendarCe",
+  "homepage": "https://github.com/ChendarCe/dsh-perf-hud#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChendarCe/dsh-perf-hud.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ChendarCe/dsh-perf-hud/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "performance",
+    "monitor",
+    "cpu",
+    "gpu",
+    "memory",
+    "temperature",
+    "hud"
+  ],
+  "os": [
+    "win32"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "helper/*.ps1",
+    "helper/*.cmd",
+    "docs/*.png",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-theme"
+      ]
+    }
+  }
+}

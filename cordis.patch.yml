@@ -1,0 +1,5 @@
+# Performance HUD bundle: one Host row serves the local metrics route and one
+# Client half renders the floating card, so the patch inserts a single entry.
+- insert:
+    - id: perf-hud
+      name: 'dsh-perf-hud'

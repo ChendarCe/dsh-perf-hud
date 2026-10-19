@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Performance HUD">
+  <defs>
+    <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d3a63"/>
+      <stop offset="1" stop-color="#0f1d31"/>
+    </linearGradient>
+    <linearGradient id="arc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#43d0c4"/>
+      <stop offset="0.55" stop-color="#4b9dff"/>
+      <stop offset="1" stop-color="#8f7bff"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#plate)"/>
+  <rect x="2.6" y="2.6" width="58.8" height="58.8" rx="14.4" fill="none" stroke="#5f86b8" stroke-opacity="0.35"/>
+  <!-- package pins -->
+  <g stroke="#6f9dd4" stroke-opacity="0.65" stroke-width="2.4" stroke-linecap="round">
+    <path d="M20 9.5v4M32 9.5v4M44 9.5v4M20 50.5v4M32 50.5v4M44 50.5v4"/>
+    <path d="M9.5 20h4M9.5 32h4M9.5 44h4M50.5 20h4M50.5 32h4M50.5 44h4"/>
+  </g>
+  <!-- gauge track -->
+  <path d="M18 40a14 14 0 1 1 28 0" fill="none" stroke="#24405f" stroke-width="5.5" stroke-linecap="round"/>
+  <!-- gauge value -->
+  <path d="M18 40a14 14 0 0 1 20.2-12.5" fill="none" stroke="url(#arc)" stroke-width="5.5" stroke-linecap="round"/>
+  <!-- needle -->
+  <g stroke="#eaf4ff" stroke-width="2.6" stroke-linecap="round">
+    <path d="M32 40l7.4-7.4"/>
+  </g>
+  <circle cx="32" cy="40" r="3.2" fill="#eaf4ff"/>
+  <circle cx="32" cy="40" r="1.3" fill="#1d3a63"/>
+</svg>
