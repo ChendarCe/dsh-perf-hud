@@ -1,4 +1,4 @@
-﻿# dsh-perf-hud
+# dsh-perf-hud
 
 A transparent, draggable performance HUD for the DeepSeek Harness web UI:
 **CPU / GPU / memory usage**, plus the **CPU package temperature** when the
@@ -8,19 +8,19 @@ optional helper is installed.
 
 ## Highlights
 
-- **Fully transparent** 鈥?no card background, no border. Just three rows of text
+- **Fully transparent** — no card background, no border. Just three rows of text
   floating over the interface, with a soft halo so it stays readable on any
   content.
 - **Drag it anywhere.** On release it anchors to the nearest window corner, so
   maximising, restoring or resizing the window keeps it exactly where you put
   it. Double-click resets to the top-right, arrow keys nudge it, and the chevron
   that appears on hover collapses it to a single row.
-- **Load-aware colours** 鈥?usage turns amber at 70% and red at 90%; temperature
-  at 78 掳C / 88 掳C. Stale readings dim the whole card instead of flashing a fake
+- **Load-aware colours** — usage turns amber at 70% and red at 90%; temperature
+  at 78 °C / 88 °C. Stale readings dim the whole card instead of flashing a fake
   zero.
-- **Theme-aware** 鈥?only `--dsw-alias-*` tokens, so it follows light, dark and
+- **Theme-aware** — only `--dsw-alias-*` tokens, so it follows light, dark and
   any custom theme.
-- **Local only** 鈥?the metrics route answers loopback, same-origin requests and
+- **Local only** — the metrics route answers loopback, same-origin requests and
   returns 403 for everything else. Nothing is uploaded.
 
 ## Requirements
@@ -44,15 +44,15 @@ Then reload the interface once.
 | Metric | Source |
 | --- | --- |
 | CPU usage | `node:os` CPU-time deltas, once a second |
-| Memory usage | `os.totalmem()` / `os.freemem()` 鈥?same definition as Task Manager's "In use" |
+| Memory usage | `os.totalmem()` / `os.freemem()` — same definition as Task Manager's "In use" |
 | GPU usage | Windows `GPU Engine` performance counters, busiest engine (what Task Manager reports) |
-| CPU temperature | optional helper 鈥?LibreHardwareMonitor's `CPU Package` sensor |
-| GPU temperature | only when the GPU exposes a temperature sensor; most integrated GPUs do not, so the cell shows `鈥擿 |
+| CPU temperature | optional helper — LibreHardwareMonitor's `CPU Package` sensor |
+| GPU temperature | only when the GPU exposes a temperature sensor; most integrated GPUs do not, so the cell shows `—` |
 
 ## Temperatures (optional)
 
 The plugin works out of the box; without the helper both temperature cells show
-`鈥擿. For the real CPU package temperature, run **once** (it asks for
+`—`. For the real CPU package temperature, run **once** (it asks for
 administrator rights):
 
 ```
@@ -61,8 +61,8 @@ helper\setup.cmd
 
 That script downloads and sets up:
 
-- **LibreHardwareMonitor 0.9.6** (portable, library only) 鈥?reads the sensors;
-- **PawnIO 2.2.0**, a signed kernel driver 鈥?required to read MSRs while Windows
+- **LibreHardwareMonitor 0.9.6** (portable, library only) — reads the sensors;
+- **PawnIO 2.2.0**, a signed kernel driver — required to read MSRs while Windows
   "Memory integrity" (HVCI) stays enabled, so you do **not** have to weaken that
   setting;
 - **`sensor-helper.ps1`**, which writes one small JSON file about every 0.4 s;
@@ -73,7 +73,7 @@ Files go to `D:\DSHTools` when that drive exists, otherwise
 `%LOCALAPPDATA%\DSHTools`. The plugin reads either location.
 
 Measured overhead on an 8-core laptop: **0.08 % of one core and ~87 MB of RAM**
-for the helper 鈥?it is mostly waiting on the driver, not burning CPU.
+for the helper — it is mostly waiting on the driver, not burning CPU.
 
 Remove it again with:
 
@@ -90,13 +90,20 @@ helper\uninstall.ps1 -RemoveFiles # ...and deletes the helper files
 - The card floats **inside the Harness window**, not as a separate
   always-on-top desktop window.
 
-## 涓枃璇存槑
+## 中文说明
 
-DeepSeek Harness 鐣岄潰閲岀殑涓€鍧楀畬鍏ㄩ€忔槑鐨勬€ц兘璇绘暟锛欳PU / GPU / 鍐呭瓨鍗犵敤鐜囷紝鍔犱笂
-CPU 灏佽娓╁害銆傛病鏈夊簳鑹插拰杈规锛屽彧鏈変笁琛屾枃瀛楁诞鍦ㄧ晫闈笂銆?
-- **鎷栧姩**鍗＄墖浠绘剰浣嶇疆绉诲姩锛屾澗鎵嬪悗鍚搁檮鍒版渶杩戠殑绐楀彛瑙掞紝绐楀彛鏈€澶у寲 / 杩樺師 / 鏀瑰彉
-  澶у皬閮戒繚鎸佷綅缃紱**鍙屽嚮**鍥炲埌鍙充笂瑙掞紝鏂瑰悜閿井璋冿紝鎮仠鍙充晶绠ご鍙敹璧锋垚涓€琛屻€?- 鍗犵敤鐜?鈮?0% 鍙樼惀鐝€銆佲墺90% 鍙樼孩锛涙俯搴?鈮?8 掳C / 鈮?8 掳C 鍚岀悊锛涜鏁拌繃鏈熸暣鍗″彉鏆椼€?- 瀹夎锛氭彃浠堕〉闈㈠畨瑁呮湰浠撳簱锛屾垨 `dsh plugin add ChendarCe/dsh-perf-hud`銆?- 娓╁害闇€瑕佸彲閫夊姪鎵嬶細绠＄悊鍛樿繍琛屼竴娆?`helper\setup.cmd`锛堜細瀹夎 LibreHardwareMonitor
-  涓?PawnIO 绛惧悕椹卞姩锛屽苟娉ㄥ唽寮€鏈鸿嚜鍚换鍔★級銆備笉闇€瑕佹椂鐢?`helper\uninstall.ps1` 绉婚櫎銆?- 娌℃湁娓╁害鍔╂墜鏃舵俯搴︿竴鏍忔樉绀?`鈥擿锛汭ntel 鏍告樉鏈韩娌℃湁鐙珛娓╁害浼犳劅鍣紝鍚屾牱鏄剧ず `鈥擿銆?- 浠呮敮鎸?Windows锛涙偓娴獥鍦?Harness 绐楀彛鍐呴儴锛屼笉鏄嫭绔嬬殑妗岄潰缃《绐楀彛銆?
+DeepSeek Harness 界面里的一块完全透明的性能读数：CPU / GPU / 内存占用率，加上
+CPU 封装温度。没有底色和边框，只有三行文字浮在界面上。
+
+- **拖动**卡片任意位置移动，松手后吸附到最近的窗口角，窗口最大化 / 还原 / 改变
+  大小都保持位置；**双击**回到右上角，方向键微调，悬停右侧箭头可收起成一行。
+- 占用率 ≥70% 变琥珀、≥90% 变红；温度 ≥78 °C / ≥88 °C 同理；读数过期整卡变暗。
+- 安装：插件页面安装本仓库，或 `dsh plugin add ChendarCe/dsh-perf-hud`。
+- 温度需要可选助手：管理员运行一次 `helper\setup.cmd`（会安装 LibreHardwareMonitor
+  与 PawnIO 签名驱动，并注册开机自启任务）。不需要时用 `helper\uninstall.ps1` 移除。
+- 没有温度助手时温度一栏显示 `—`；Intel 核显本身没有独立温度传感器，同样显示 `—`。
+- 仅支持 Windows；悬浮窗在 Harness 窗口内部，不是独立的桌面置顶窗口。
+
 ## License
 
 [MIT](LICENSE)
